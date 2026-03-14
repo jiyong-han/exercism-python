@@ -9,7 +9,12 @@ def eat_ghost(power_pellet_active, touching_ghost):
     :return: bool - can a ghost be eaten?
     """
 
-    pass
+    if power_pellet_active and touching_ghost:
+        return True
+    else:        
+        return False
+    
+    # return power_pellet_active and touching_ghost 라고 한줄로 표현할 수도 있다. power_pellet_active와 touching_ghost가 모두 참일 때만 참이므로 and 연산자를 사용한다.
 
 
 def score(touching_power_pellet, touching_dot):
@@ -20,7 +25,8 @@ def score(touching_power_pellet, touching_dot):
     :return: bool - has the player scored or not?
     """
 
-    pass
+    return touching_power_pellet or touching_dot
+     # return touching_power_pellet or touching_dot 라고 한줄로 표현할 수도 있다. touching_power_pellet 또는 touching_dot가 참이면 참이므로 or 연산자를 사용한다.
 
 
 def lose(power_pellet_active, touching_ghost):
@@ -31,7 +37,10 @@ def lose(power_pellet_active, touching_ghost):
     :return: bool - has the player lost the game?
     """
 
-    pass
+    if not power_pellet_active and touching_ghost:
+        return True
+    else:
+        return False
 
 
 def win(has_eaten_all_dots, power_pellet_active, touching_ghost):
@@ -43,4 +52,7 @@ def win(has_eaten_all_dots, power_pellet_active, touching_ghost):
     :return: bool - has the player won the game?
     """
 
-    pass
+    if has_eaten_all_dots and not lose(power_pellet_active, touching_ghost):
+        return True
+    else:
+        return False
